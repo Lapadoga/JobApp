@@ -36,12 +36,12 @@ android {
 dependencies {
     implementation(project(":domain"))
 
-    implementation(libs.androidx.room.runtime)
+    api(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.ktx)
+    api(libs.androidx.room.ktx)
 
-    implementation(libs.retrofit)
-    implementation(libs.retrofit2.converter.gson)
+    api(libs.retrofit)
+    api(libs.retrofit2.converter.gson)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -49,4 +49,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(libs.javax.inject)
 }

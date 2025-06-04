@@ -8,8 +8,9 @@ import com.example.data.room.VacancyDao
 import com.example.domain.ApiAnswer
 import com.example.domain.model.vacancy.Vacancy
 import com.example.domain.repository.JobRepository
+import javax.inject.Inject
 
-class JobRepositoryImpl(
+class JobRepositoryImpl @Inject constructor(
     private val vacanciesDao: VacancyDao,
     private val api: JobApi
 ) : JobRepository {

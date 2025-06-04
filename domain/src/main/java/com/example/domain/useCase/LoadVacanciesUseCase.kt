@@ -3,8 +3,9 @@ package com.example.domain.useCase
 import com.example.domain.ApiAnswer
 import com.example.domain.model.vacancy.Vacancy
 import com.example.domain.repository.JobRepository
+import javax.inject.Inject
 
-class LoadVacanciesUseCase(
+class LoadVacanciesUseCase @Inject constructor(
     private val repository: JobRepository
 ) {
     suspend fun getPresentationData(): ApiAnswer? {

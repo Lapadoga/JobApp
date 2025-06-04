@@ -3,7 +3,6 @@ package com.example.data.api
 import com.example.domain.ApiAnswer
 import retrofit2.http.GET
 
-// https://drive.usercontent.google.com
 interface JobApi {
     @GET(DATA_URL)
     suspend fun getData(): ApiAnswer
