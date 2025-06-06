@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
                         BottomBarScreen(navController, sharedViewModel)
                     }
                 ) { paddingValues ->
-                    Navigation(navController, paddingValues)
+                    Navigation(navController, paddingValues, sharedViewModel)
                 }
             }
         }

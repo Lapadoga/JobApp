@@ -5,4 +5,37 @@
     <string name="responses">Responses</string>
     <string name="messages">Messages</string>
     <string name="profile">Profile</string>
+    <string name="search_hint">Position, keywords</string>
+    <string name="jobs_list_title">Jobs for you</string>
+    <string name="january">january</string>
+    <string name="february">February</string>
+    <string name="march">March</string>
+    <string name="april">April</string>
+    <string name="may">May</string>
+    <string name="june">June</string>
+    <string name="july">July</string>
+    <string name="august">August</string>
+    <string name="september">September</string>
+    <string name="october">October</string>
+    <string name="november">November</string>
+    <string name="december">December</string>
+    <string name="posted">Posted</string>
+    <string name="apply">Apply</string>
+    <string name="stub_screen">In development</string>
+    <string name="search_list_hint">Position for suitable vacancies</string>
+    <string name="sort">By compliance</string>
+
+    <plurals name="watching_people">
+        <item quantity="one">%1$d person now viewing</item>
+        <item quantity="other">%1$d people now viewing</item>
+    </plurals>
+    <plurals name="more_jobs">
+        <item quantity="one">%1$d more job</item>
+        <item quantity="other">%1$d more jobs</item>
+    </plurals>
+    <plurals name="number_of_vacancies">
+        <item quantity="one">%1$d vacancy</item>
+        <item quantity="other">%1$d vacancies</item>
+    </plurals>
+
 </resources>

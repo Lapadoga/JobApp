@@ -29,6 +29,6 @@ class LoadVacanciesUseCase @Inject constructor(
     suspend fun setIsFavorite(vacancy: Vacancy, isFavorite: Boolean) =
         repository.setIsFavorite(vacancy, isFavorite)
 
-    suspend fun getFavorites() = repository.getFavorites()
+    private suspend fun getFavorites() = repository.getFavorites()
 }
 

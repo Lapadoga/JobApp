@@ -5,4 +5,21 @@
     <dimen name="tab_text_padding">3dp</dimen>
     <dimen name="badge_offset_x">6dp</dimen>
     <dimen name="badge_offset_y">-4dp</dimen>
+    <dimen name="_8dp">8dp</dimen>
+    <dimen name="search_row_height">56dp</dimen>
+    <dimen name="search_row_radius">8dp</dimen>
+    <dimen name="offer_box_width">132dp</dimen>
+    <dimen name="offer_box_height">120dp</dimen>
+    <dimen name="offer_box_end_padding">12dp</dimen>
+    <dimen name="offer_box_top_padding">10dp</dimen>
+    <dimen name="offer_box_bottom_padding">11dp</dimen>
+    <dimen name="offer_box_text_padding">40dp</dimen>
+    <dimen name="_16dp">16dp</dimen>
+    <dimen name="_32dp">32dp</dimen>
+    <dimen name="vacancy_box_height">233dp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_4dp">4dp</dimen>
+    <dimen name="_21dp">21dp</dimen>
+    <dimen name="button_radius">50dp</dimen>
+    <dimen name="_25dp">25dp</dimen>
 </resources>

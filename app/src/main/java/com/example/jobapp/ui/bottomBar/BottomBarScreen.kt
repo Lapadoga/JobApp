@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -41,6 +42,20 @@ fun BottomBarScreen(
 ) {
     val rowParams = buildBottomBarItems()
     val state by viewModel.listState.collectAsState()
+
+    LaunchedEffect(navController) {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val currentPage = when (destination.route) {
+                "main_list_screen" -> Pages.SEARCH
+                "favorites_list" -> Pages.FAVORITES
+                "responses" -> Pages.RESPONSES
+                "messages" -> Pages.MESSAGES
+                "profile" -> Pages.PROFILE
+                else -> state.currentPage
+            }
+            viewModel.onPageChange(currentPage)
+        }
+    }
 
     BottomAppBar {
         Row(
@@ -92,7 +107,7 @@ fun TabElement(
                             ),
                         contentColor = White,
                         containerColor = Red
-                    ){
+                    ) {
                         Text(
                             text = badgeCount.toString(),
                             style = Number

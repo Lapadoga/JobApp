@@ -46,4 +46,28 @@ class VacanciesViewModel @Inject constructor(
             )
         }
     }
+
+    fun onFavoriteClick(vacancyId: String) {
+        val clickedVacancy = listState.value.vacancies.find { it.id == vacancyId }
+        if (clickedVacancy != null) {
+            val newFavoriteState = !clickedVacancy.isFavorite
+            viewModelScope.launch {
+                useCase.setIsFavorite(clickedVacancy, newFavoriteState)
+                _listState.update { state ->
+                    state.copy(
+                        vacancies = state.vacancies.map {
+                            if (it == clickedVacancy)
+                                it.copy(isFavorite = newFavoriteState)
+                            else
+                                it
+                        },
+                        numberOfFavorites = if (newFavoriteState)
+                            state.numberOfFavorites + 1
+                        else
+                            state.numberOfFavorites - 1
+                    )
+                }
+            }
+        }
+    }
 }

@@ -12,7 +12,7 @@ fun buildBottomBarItems() = listOf(
         page = Pages.SEARCH
     ),
     BottomBarRowParams(
-        iconRes = R.drawable.ic_heart,
+        iconRes = R.drawable.ic_heart_menu,
         textRes = R.string.favorite,
         route = NavScreens.FavoritesListScreen,
         page = Pages.FAVORITES
