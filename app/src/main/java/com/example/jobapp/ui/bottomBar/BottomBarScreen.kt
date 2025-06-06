@@ -26,6 +26,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import com.example.jobapp.R
+import com.example.jobapp.ui.navigation.NavScreens.Companion.FAVORITES_LIST_SCREEN
+import com.example.jobapp.ui.navigation.NavScreens.Companion.MAIN_LIST_SCREEN
+import com.example.jobapp.ui.navigation.NavScreens.Companion.MESSAGES_SCREEN
+import com.example.jobapp.ui.navigation.NavScreens.Companion.PROFILE_SCREEN
+import com.example.jobapp.ui.navigation.NavScreens.Companion.RESPONSES_SCREEN
+import com.example.jobapp.ui.navigation.NavScreens.Companion.VACANCIES_LIST_SCREEN
 import com.example.jobapp.ui.theme.Blue
 import com.example.jobapp.ui.theme.Grey4
 import com.example.jobapp.ui.theme.Number
@@ -46,11 +52,12 @@ fun BottomBarScreen(
     LaunchedEffect(navController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             val currentPage = when (destination.route) {
-                "main_list_screen" -> Pages.SEARCH
-                "favorites_list" -> Pages.FAVORITES
-                "responses" -> Pages.RESPONSES
-                "messages" -> Pages.MESSAGES
-                "profile" -> Pages.PROFILE
+                MAIN_LIST_SCREEN -> Pages.SEARCH
+                FAVORITES_LIST_SCREEN -> Pages.FAVORITES
+                RESPONSES_SCREEN -> Pages.RESPONSES
+                MESSAGES_SCREEN -> Pages.MESSAGES
+                PROFILE_SCREEN -> Pages.PROFILE
+                VACANCIES_LIST_SCREEN -> Pages.SEARCH
                 else -> state.currentPage
             }
             viewModel.onPageChange(currentPage)

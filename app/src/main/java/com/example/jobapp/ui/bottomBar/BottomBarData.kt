@@ -20,19 +20,19 @@ fun buildBottomBarItems() = listOf(
     BottomBarRowParams(
         iconRes = R.drawable.ic_letter,
         textRes = R.string.responses,
-        route = NavScreens.Stub,
+        route = NavScreens.ResponsesScreen,
         page = Pages.RESPONSES
     ),
     BottomBarRowParams(
         iconRes = R.drawable.ic_message,
         textRes = R.string.messages,
-        route = NavScreens.Stub,
+        route = NavScreens.MessagesScreen,
         page = Pages.MESSAGES
     ),
     BottomBarRowParams(
         iconRes = R.drawable.ic_profile,
         textRes = R.string.profile,
-        route = NavScreens.Stub,
+        route = NavScreens.ProfileScreen,
         page = Pages.PROFILE
     ),
 )

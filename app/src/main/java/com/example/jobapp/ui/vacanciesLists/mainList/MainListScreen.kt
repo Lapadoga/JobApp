@@ -299,7 +299,7 @@ private fun VacancyBox(
     Column(
         modifier = Modifier
             .clickable {
-                navHostController.navigate(NavScreens.Stub.routeName)
+                navHostController.navigate(NavScreens.StubScreen.routeName)
             }
             .background(
                 color = Grey2,

@@ -27,7 +27,22 @@ fun Navigation(
             MainListScreen(viewModel, paddingValues, navController)
         }
         composable(
-            route = NavScreens.Stub.routeName
+            route = NavScreens.ResponsesScreen.routeName
+        ) {
+            StubScreen()
+        }
+        composable(
+            route = NavScreens.MessagesScreen.routeName
+        ) {
+            StubScreen()
+        }
+        composable(
+            route = NavScreens.ProfileScreen.routeName
+        ) {
+            StubScreen()
+        }
+        composable(
+            route = NavScreens.StubScreen.routeName
         ) {
             StubScreen()
         }
