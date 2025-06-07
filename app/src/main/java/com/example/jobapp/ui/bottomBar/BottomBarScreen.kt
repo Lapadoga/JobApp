@@ -74,11 +74,10 @@ fun BottomBarScreen(
                     iconRes = it.iconRes,
                     textRes = it.textRes,
                     onClick = {
-                        viewModel.onPageChange(it.page)
                         navController.navigate(route = it.route.routeName)
                     },
                     isSelected = it.page == state.currentPage,
-                    badgeCount = if (it.page == Pages.FAVORITES) state.numberOfFavorites else null
+                    badgeCount = if (it.page == Pages.FAVORITES) state.favoriteVacancies.size else null
                 )
             }
         }
@@ -86,7 +85,7 @@ fun BottomBarScreen(
 }
 
 @Composable
-fun TabElement(
+private fun TabElement(
     iconRes: Int,
     textRes: Int,
     onClick: () -> Unit,
@@ -144,9 +143,8 @@ fun TabElement(
 }
 
 @Composable
-@Preview(showBackground = true, locale = "ru")
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
-fun BottomBarScreenPreview() {
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "ru")
+private fun BottomBarScreenPreview() {
     val rowParams = buildBottomBarItems()
 
     BottomAppBar {
@@ -168,9 +166,8 @@ fun BottomBarScreenPreview() {
 }
 
 @Composable
-@Preview(showBackground = true)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
-fun TabElementPreview() {
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "ru")
+private fun TabElementPreview() {
     val isSelected = true
 
     Box(

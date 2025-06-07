@@ -2,6 +2,7 @@ package com.example.jobapp.ui.vacanciesLists
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.domain.model.vacancy.Vacancy
 import com.example.domain.useCase.LoadVacanciesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,7 +32,7 @@ class VacanciesViewModel @Inject constructor(
                     state.copy(
                         vacancies = data.vacancies,
                         offers = data.offers,
-                        numberOfFavorites = numberOfFavorites,
+                        favoriteVacancies = data.vacancies.filter { it.isFavorite },
                         currentPage = Pages.SEARCH
                     )
                 }
@@ -47,26 +48,23 @@ class VacanciesViewModel @Inject constructor(
         }
     }
 
-    fun onFavoriteClick(vacancyId: String) {
-        val clickedVacancy = listState.value.vacancies.find { it.id == vacancyId }
-        if (clickedVacancy != null) {
-            val newFavoriteState = !clickedVacancy.isFavorite
-            viewModelScope.launch {
-                useCase.setIsFavorite(clickedVacancy, newFavoriteState)
-                _listState.update { state ->
-                    state.copy(
-                        vacancies = state.vacancies.map {
-                            if (it == clickedVacancy)
-                                it.copy(isFavorite = newFavoriteState)
-                            else
-                                it
-                        },
-                        numberOfFavorites = if (newFavoriteState)
-                            state.numberOfFavorites + 1
+    fun onFavoriteClick(vacancy: Vacancy) {
+        val newFavoriteState = !vacancy.isFavorite
+        viewModelScope.launch {
+            useCase.setIsFavorite(vacancy, newFavoriteState)
+            _listState.update { state ->
+                state.copy(
+                    vacancies = state.vacancies.map {
+                        if (it == vacancy)
+                            it.copy(isFavorite = newFavoriteState)
                         else
-                            state.numberOfFavorites - 1
-                    )
-                }
+                            it
+                    },
+                    favoriteVacancies = if (newFavoriteState)
+                        state.favoriteVacancies + vacancy.copy(isFavorite = true)
+                    else
+                        state.favoriteVacancies - vacancy
+                )
             }
         }
     }

@@ -28,9 +28,8 @@ fun StubScreen() {
 }
 
 @Composable
-@Preview(showBackground = true, locale = "ru")
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "ru")
-fun StubScreenPreview() {
+private fun StubScreenPreview() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {

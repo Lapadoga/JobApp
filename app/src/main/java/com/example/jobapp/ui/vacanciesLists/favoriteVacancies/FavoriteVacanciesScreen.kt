@@ -57,8 +57,8 @@ fun FavoriteVacanciesScreen(
             Text(
                 text = pluralStringResource(
                     R.plurals.number_of_vacancies,
-                    state.numberOfFavorites,
-                    state.numberOfFavorites
+                    state.favoriteVacancies.size,
+                    state.favoriteVacancies.size
                 ),
                 style = Text1,
                 color = Grey3,
@@ -71,7 +71,7 @@ fun FavoriteVacanciesScreen(
                 color = Color.Transparent
             )
             VacancyList(
-                state.vacancies.filter { it.isFavorite },
+                state.favoriteVacancies,
                 navHostController
             ) {
                 viewModel.onFavoriteClick(it)

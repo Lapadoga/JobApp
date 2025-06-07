@@ -84,7 +84,7 @@ fun VacanciesListScreen(
 }
 
 @Composable
-fun SearchRow(
+private fun SearchRow(
     heightRes: Int,
     navHostController: NavHostController
 ) {
@@ -166,7 +166,7 @@ fun SearchRow(
 }
 
 @Composable
-fun InfoRow(
+private fun InfoRow(
     numberOfVacancies: Int
 ) {
     Row(
@@ -208,7 +208,7 @@ fun InfoRow(
 
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "ru")
-fun InfoRowPreview() {
+private fun InfoRowPreview() {
     val numberOfVacancies = 6
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -247,7 +247,7 @@ fun InfoRowPreview() {
 
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "ru")
-fun SearchRowPreview() {
+private fun SearchRowPreview() {
     val heightRes = R.dimen.search_row_height
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,

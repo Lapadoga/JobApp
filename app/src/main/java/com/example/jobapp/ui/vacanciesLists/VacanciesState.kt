@@ -8,7 +8,7 @@ import com.example.domain.model.vacancy.Vacancy
 data class VacanciesState(
     val vacancies: List<Vacancy> = listOf(),
     val offers: List<Offer> = listOf(),
-    val numberOfFavorites: Int = 0,
+    val favoriteVacancies: List<Vacancy> = listOf(),
     val currentPage: Pages = Pages.SEARCH
 )
 

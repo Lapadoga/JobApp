@@ -274,7 +274,7 @@ private fun OfferBox(
 fun VacancyList(
     vacancies: List<Vacancy>,
     navHostController: NavHostController,
-    onFavoriteClick: (String) -> Unit
+    onFavoriteClick: (Vacancy) -> Unit
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen._16dp)),
@@ -283,8 +283,8 @@ fun VacancyList(
         )
     ) {
         vacancies.forEach {
-            VacancyBox(it, navHostController) { id ->
-                onFavoriteClick(id)
+            VacancyBox(it, navHostController) { vacancy ->
+                onFavoriteClick(vacancy)
             }
         }
     }
@@ -294,7 +294,7 @@ fun VacancyList(
 private fun VacancyBox(
     vacancy: Vacancy,
     navHostController: NavHostController,
-    onFavoriteClick: (String) -> Unit,
+    onFavoriteClick: (Vacancy) -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -339,7 +339,7 @@ private fun VacancyBox(
                 contentDescription = null,
                 modifier = Modifier
                     .clickable {
-                        onFavoriteClick(vacancy.id)
+                        onFavoriteClick(vacancy)
                     }
                     .align(Alignment.TopEnd)
             )
@@ -426,7 +426,6 @@ private fun VacancyBox(
 }
 
 @Composable
-@Preview(showBackground = true, locale = "ru")
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "ru")
 private fun VacancyBoxPreview() {
     val vacancy = Vacancy(
@@ -587,8 +586,7 @@ private fun VacancyBoxPreview() {
 }
 
 @Composable
-@Preview(showBackground = true)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "ru")
 private fun OfferBoxPreview() {
     val offer = Offer(
         id = "level_up_resume",
@@ -648,8 +646,7 @@ private fun OfferBoxPreview() {
 }
 
 @Composable
-@Preview(showBackground = true)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "ru")
 private fun OffersRowPreview(
 ) {
     val iconsMap = iconsIds()
@@ -691,8 +688,7 @@ private fun OffersRowPreview(
 }
 
 @Composable
-@Preview(showBackground = true)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, locale = "ru")
 private fun SearchRowPreview() {
     val testHeight = 56.dp
 
